@@ -2,6 +2,7 @@ package com.baogex.spring.cloud.shop.shop.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 /**
  * <p>
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date : 2021-07-19
  */
 @SpringBootApplication
+@EntityScan("com.baogex.spring.cloud.shop.common")
 public class UserApplication {
     public static void main(String[] args) {
         SpringApplication.run(UserApplication.class, args);
