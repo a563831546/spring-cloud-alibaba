@@ -14,18 +14,18 @@ import javax.annotation.Resource;
  * @Date: 2021/8/1
  */
 @RestController
-@RequestMapping(WebConst.BASE_PRE + "prodcut")
+@RequestMapping(WebConst.BASE_PRE + "product")
 public class ProductController {
 
     @Resource
     private ProductRepository repository;
 
     @GetMapping("/find/{pid}")
-    public Response<Product> getProduct(@PathVariable("pid") Integer pid) {
-        return RestResponseV.returnIfPresent(repository.findById(pid).get());
+    public Response<Product> getProduct(@PathVariable("pid") Long pid) {
+        return RestResponseV.returnIfPresent(repository.findById(pid).orElse(null));
     }
 
-    @PostMapping("/post")
+    @PostMapping("/save")
     public Response<Product> save(@RequestBody Product product) {
         return RestResponseV.returnIfPresent(repository.save(product));
     }

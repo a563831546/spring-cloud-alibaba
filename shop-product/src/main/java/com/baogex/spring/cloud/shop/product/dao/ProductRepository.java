@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Author: baogex
  * @Date: 2021/8/1
  */
-public interface ProductRepository extends JpaRepository<Product,Integer> {
+public interface ProductRepository extends JpaRepository<Product,Long> {
 }

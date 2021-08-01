@@ -17,7 +17,7 @@ import java.math.BigDecimal;
  * @author : zuomin.yu
  * @date : 2021-07-19
  */
-@Entity(name = "shop_order")
+@Entity(name = "t_order")
 @Data
 public class Order {
 

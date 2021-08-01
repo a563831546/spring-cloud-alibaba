@@ -16,7 +16,7 @@ import javax.persistence.Id;
  * @author : zuomin.yu
  * @date : 2021-07-19
  */
-@Entity(name = "shop_user")
+@Entity(name = "t_user")
 @Data
 public class User {
 

@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 /**
  * <p>
@@ -16,16 +17,16 @@ import javax.persistence.Id;
  * @date : 2021-07-19
  */
 @Data
-@Entity(name = "shop_product")
+@Entity(name = "t_product")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer pid;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long pid;
 
-    private Long oid;
+    private String pName;
 
-    private Integer uid;
+    private BigDecimal pPrice;
 
-    private String username;
+    private Integer pStock;
 
 }

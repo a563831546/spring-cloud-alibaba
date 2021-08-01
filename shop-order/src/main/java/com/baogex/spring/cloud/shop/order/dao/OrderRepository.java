@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Author: baogex
  * @Date: 2021/7/31
  */
-public interface OrderRepository extends JpaRepository<Order, Integer> {
+public interface OrderRepository extends JpaRepository<Order, Long> {
 }

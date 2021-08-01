@@ -1,15 +1,15 @@
 package com.baogex.spring.cloud.shop.order.rest;
 
 import com.baogex.spring.cloud.shop.common.entity.Order;
+import com.baogex.spring.cloud.shop.common.entity.Product;
 import com.baogex.spring.cloud.shop.common.entity.User;
 import com.baogex.spring.cloud.shop.common.response.Response;
 import com.baogex.spring.cloud.shop.common.response.RestResponse;
 import com.baogex.spring.cloud.shop.common.verifier.RestResponseV;
 import com.baogex.spring.cloud.shop.order.dao.OrderRepository;
 import com.baogex.spring.cloud.shop.web.cons.WebConst;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
 
@@ -22,6 +22,9 @@ import javax.annotation.Resource;
 public class OrderController {
 
     @Resource
+    private RestTemplate restTemplate;
+
+    @Resource
     private OrderRepository orderRepository;
 
     @PostMapping("save")
@@ -29,4 +32,12 @@ public class OrderController {
         Order result = orderRepository.save(order);
         return RestResponseV.returnIfPresent(result);
     }
+
+    @GetMapping("/order/{pid}")
+    public Response<Product> order(@PathVariable("pid") Integer pid) {
+        Product product = restTemplate.getForObject(
+                "localhost:9210/api/v1/product/find/" + pid, Product.class);
+        return RestResponseV.returnIfPresent(product);
+    }
+
 }
