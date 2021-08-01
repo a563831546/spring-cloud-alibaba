@@ -13,7 +13,6 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
  * @date : 2021-07-19
  */
 @SpringBootApplication
-@EntityScan("com.baogex.spring.cloud.shop.common")
 public class UserApplication {
     public static void main(String[] args) {
         SpringApplication.run(UserApplication.class, args);

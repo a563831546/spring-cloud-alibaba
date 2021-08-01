@@ -1,4 +1,4 @@
-package com.baogex.spring.cloud.shop.product;
+package com.baogex.spring.cloud.shop.order;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
@@ -10,13 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @Slf4j
 @SpringBootApplication
-public class ProductApplication {
+public class OrderApplication {
     public static void main(String[] args) {
         try {
-            SpringApplication.run(ProductApplication.class, args);
-            log.info("Application Start Success!");
-        } catch (Throwable e) {
-            e.printStackTrace();
+            SpringApplication.run(OrderApplication.class);
+            log.info("[S][start] start success!");
+        } catch (Throwable t) {
+            log.info("[E][start] start happen fail,", t);
         }
     }
 }

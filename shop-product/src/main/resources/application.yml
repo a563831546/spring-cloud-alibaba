@@ -1,0 +1,18 @@
+server:
+  port: 9210
+  
+spring:
+  application:
+    name: user-shop
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.13.117.43:3306/shop?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    hikari:
+      username: root
+      password: asdasd
+  jpa:
+    hibernate:
+      ddl-auto: update
+    # 展示sql
+    show-sql: true
+ 

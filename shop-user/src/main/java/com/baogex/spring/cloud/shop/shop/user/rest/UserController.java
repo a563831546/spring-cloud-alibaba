@@ -6,6 +6,7 @@ import com.baogex.spring.cloud.shop.common.response.Response;
 import com.baogex.spring.cloud.shop.common.response.RestResponse;
 import com.baogex.spring.cloud.shop.common.verifier.RestResponseV;
 import com.baogex.spring.cloud.shop.shop.user.dao.UsersRepository;
+import com.baogex.spring.cloud.shop.web.cons.WebConst;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ import javax.annotation.Resource;
  * @date : 2021-07-19
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping(WebConst.BASE_PRE + "user")
 @Slf4j
 public class UserController {
 
