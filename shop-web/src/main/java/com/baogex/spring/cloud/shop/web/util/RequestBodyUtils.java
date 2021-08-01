@@ -1,9 +1,9 @@
 package com.baogex.spring.cloud.shop.web.util;
 
-import java.io.IOException;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.Writer;
+import org.apache.commons.io.IOUtils;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @Author: baogex
@@ -16,12 +16,18 @@ public class RequestBodyUtils {
     /**
      * read string.
      *
-     * @param reader Reader instance.
+     * @param inputStream InputStream instance.
      * @return String.
      * @throws IOException
      */
-    public static String read(Reader reader) throws IOException {
+    public static String read(InputStream inputStream) throws IOException {
+        String body = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
+        BufferedReader reader = new BufferedReader(
+                new InputStreamReader(
+                        new ByteArrayInputStream(body.getBytes(StandardCharsets.UTF_8))));
+
         StringWriter writer = new StringWriter();
+
         try {
             write(reader, writer);
             return writer.getBuffer().toString();
@@ -59,7 +65,6 @@ public class RequestBodyUtils {
             writer.write(buf, 0, read);
             total += read;
         }
-        reader.reset();
         return total;
     }
 }

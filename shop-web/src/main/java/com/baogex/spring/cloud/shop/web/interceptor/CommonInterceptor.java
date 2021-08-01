@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.annotation.PostConstruct;
+import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
@@ -25,8 +26,7 @@ public class CommonInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        BufferedReader bufferedReader = request.getReader();
-        String bodyStr = RequestBodyUtils.read(bufferedReader);
+        String bodyStr = RequestBodyUtils.read(request.getInputStream());
         log.info("请求方式[{}],请求路径:[{}],请求参数[{}]，Body[{}]",
                 request.getMethod(),
                 request.getServletPath(),
